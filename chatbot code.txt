@@ -1,0 +1,52 @@
+https://app.code2flow.com/
+
+if(need help 
+fixing your code?){
+  if(Are you able to 
+  reproduce the problem?){
+    if(Can you reproduce
+    the problem quickly?){
+      l0:
+      if(Do you know 
+      what caused it?){
+        l1:
+        if(Do you know how 
+        to fix the cause?){
+          if(Is there a chance the
+          fix will break anything?){
+            Monitor those places
+            with regression testing
+          } else{
+            Go fix the issue
+          }
+        } else{
+          search the internet;
+          goto l1;
+        }
+      } else{
+          switch (How do you want 
+          to figure it out) {
+  
+            explaining => What You Code 
+            Is What You Think;
+            Stepping => stepping through code;
+            Locating => narrow down the problem area;
+            Check variables => tracking variables
+            through execution
+          }
+          goto l0;
+      }
+    } else{
+      recommendations on 
+      speedup debugging cycle;
+    }
+  } else{
+    recommendations on 
+    how to reproduce;
+  }
+}
+else {
+  no can do;
+}
+
+
