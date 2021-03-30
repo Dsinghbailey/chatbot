@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> 
+       <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/site.css')}}">
+    </head>
+    <body>
+        <img style="margin: 24px auto; display:block; width:900px" src="{{url_for('static', filename='img/logo.png')}}"  class="img-responsive">
+        <div class="container bootstrap snippets bootdey" style="margin-top: 16px; margin-bottom: 100px;">
+            <div class="tile tile-alt" id="messages-main">
+                <div class="ms-body">
+                    <div id="history">
+                        <div class="message-feed media">
+                            <div class="pull-left">
+                                <img src="{{url_for('static', filename='img/001-goose.png')}}" alt="" class="img-avatar">
+                            </div>
+                            <div class="media-body">
+                                <div class="mf-content">
+                                    Quisque consequat arcu eget odio cursus, ut tempor arcu vestibulum. Etiam ex arcu, porta a urna non, lacinia pellentesque orci. Proin semper sagittis erat, eget condimentum sapien viverra et. Mauris volutpat magna nibh, et condimentum est rutrum a. Nunc sed turpis mi. In eu massa a sem pulvinar lobortis.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="message-feed right">
+                            <div class="pull-right">
+                                <img src="{{url_for('static', filename='img/woman.png')}}" alt="" class="img-avatar">
+                            </div>
+                            <div class="media-body">
+                                <div class="mf-content">
+                                    Mauris volutpat magna nibh, et condimentum est rutrum a. Nunc sed turpis mi. In eu massa a sem pulvinar lobortis.
+                                </div>
+                            </div>
+                        </div>
+                        
+                    <div class="msb-reply">
+                        <textarea placeholder="What's on your mind..."></textarea>
+                        <button><i class="fa fa-paper-plane-o"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

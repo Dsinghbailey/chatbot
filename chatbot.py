@@ -80,7 +80,7 @@ def dead_end(statement, func=lambda: hello()):
 
 ## Flow starts 
 def hello():
-    chat(['hello. need help fixing your code?', 'hi, do you have broken code that needs fixing?'], 
+    chat(['hello. I\'m the rubber goose debugger, need help fixing your code?', 'hi, I\'m the rubber goose debugger, do you have broken code that needs fixing?'], 
         reproduction_check, cant_help)
 
 def cant_help():
