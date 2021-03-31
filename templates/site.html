@@ -18,32 +18,11 @@
         <div class="container bootstrap snippets bootdey" style="margin-top: 40px; margin-bottom: 100px;">
             <div class="tile tile-alt" id="messages-main">
                 <div class="ms-body">
-                    <div id="history">
-                        <div class="message-feed media">
-                            <div class="pull-left">
-                                <img src="{{url_for('static', filename='img/001-goose.png')}}" alt="" class="img-avatar">
-                            </div>
-                            <div class="media-body">
-                                <div class="mf-content">
-                                    {{chatHistory}}
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="message-feed right">
-                            <div class="media-body">
-                                <div class="mf-content">
-                                    {{replyHistory}}
-                                </div>
-                            </div>
-                        </div>
-                        
-                    <div class="msb-reply">
-                        <div class="reply-btn">
-                            <h2 color="black">{{replyNumber}}</h2>
-                            <button type="button"> {{replyText}}</button>
-                            <i style="color:black;font-size: x-large;" class="bi bi-arrow-right-circle-fill"></i>
-                        </div>
+                    <div id="history" id="historyWindow">
+                        <!-- history goes here -->
+                    </div>
+                    <div class="msb-reply" id="replyWindow">
+                        <!-- Replies go here-->
                     </div>
                 </div>
             </div>
@@ -51,5 +30,11 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $("#historyWindow").load("{{url_for('static', filename='partials/_chat_history.html')}}");
+            $("#historyWindow").load("{{url_for('static', filename='partials/_reply_history.html')}}");
+            $("#replyWindow").load("{{url_for('static', filename='partials/_reply_button.html')}}");
+        </script>
     </body>
 </html>
