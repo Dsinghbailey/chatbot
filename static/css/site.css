@@ -16,6 +16,7 @@ body {
 #history{
     max-height: 480px;
     overflow: scroll;
+    padding-top: 10px;
 }
 .container{
     max-width: 960px;
@@ -40,7 +41,7 @@ body {
     background: #fff;
 }
 .media-body{
-    margin-left: 4px;
+    margin-left: 8px;
 }    
 @media (min-width:768px) {
 }@media (max-width:767px) {
@@ -93,7 +94,7 @@ body {
     content: ""
 }
 .message-feed {
-    padding: 20px;
+    padding: 10px 10px 10px 16px;
 }
 #footer, .fc-toolbar .ui-button, .fileinput .thumbnail, .four-zero, .four-zero footer>a, .ie-warning, .login-content, .login-navigation, .pt-inner, .pt-inner .pti-footer>a {
     text-align: center;
@@ -121,33 +122,33 @@ body {
     position: relative;
     margin-top: 30px;
     border-top: 1px solid #eee;
-    background: #f8f8f8;
-}
-.four-zero, .lc-block {
-    box-shadow: 0 1px 11px rgba(0, 0, 0, .27);
-}
-.msb-reply textarea {
+    background: #ebebeb;
     width: 100%;
     font-size: 13px;
     border: 0;
-    padding: 10px 15px;
+    padding: 10px 15px 10px 50px;
     resize: none;
-    height: 60px;
-    background: 0 0;
+    min-height: 100px;
 }
-.msb-reply button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 0;
-    height: 100%;
-    width: 60px;
-    font-size: 25px;
-    color: #2196f3;
-    background: 0 0;
+.reply-btn{
+    width: max-content;
+    float: right;
 }
-.msb-reply button:hover {
-    background: #f2f2f2;
+.reply-btn button{
+    padding: 8px;
+    margin-right: 6px;
+}
+.reply-btn:hover button{
+    background: rgb(20, 181, 146);
+    color: #fff;
+    border-color: #fff;
+}
+.reply-btn:hover i{
+    color: rgb(20, 181, 146) !important;
+}
+
+.four-zero, .lc-block {
+    box-shadow: 0 1px 11px rgba(0, 0, 0, .27);
 }
 .img-avatar {
     height: 37px;
@@ -201,7 +202,7 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    width: 50px;
+    width: 55px;
     height: 100%;
     padding-right: 10px;
     padding-top: 19px;
