@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <link rel="shortcut icon" href="{{url_for('static', filename='img/icon.png')}}"> 
        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> 
        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/site.css')}}">
@@ -18,11 +19,13 @@
         <div class="container bootstrap snippets bootdey" style="margin-top: 40px; margin-bottom: 100px;">
             <div class="tile tile-alt" id="messages-main">
                 <div class="ms-body">
-                    <div id="history" id="historyWindow">
+                    <div id="historyWindow">
                         <!-- history goes here -->
                     </div>
-                    <div class="msb-reply" id="replyWindow">
+                    <div class="msb-reply" >
+                        <div class="reply-btn-grp" id="replyWindow">
                         <!-- Replies go here-->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -31,10 +34,18 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	    <script src="{{url_for('static', filename='site.js')}}"></script>
         <script type="text/javascript">
-            $("#historyWindow").load("{{url_for('static', filename='partials/_chat_history.html')}}");
-            $("#historyWindow").load("{{url_for('static', filename='partials/_reply_history.html')}}");
-            $("#replyWindow").load("{{url_for('static', filename='partials/_reply_button.html')}}");
+            var chatHistoryPartial = "{{url_for('static', filename='partials/_chat_history.html')}}"
+            var replyHistoryPartial = "{{url_for('static', filename='partials/_reply_history.html')}}"
+            var replyButtonPartial = "{{url_for('static', filename='partials/_reply_button.html')}}"
+            var imgURLArr = ["{{url_for('static', filename='img/001-goose.png')}}",
+                "{{url_for('static', filename='img/002-goose.png')}}",
+                "{{url_for('static', filename='img/003-goose.png')}}",
+                "{{url_for('static', filename='img/004-goose.png')}}"]
+
+            post_chat({{firstChat| safe}})
+            post_reply_buttons({{replyOptions| safe}})
         </script>
     </body>
 </html>
