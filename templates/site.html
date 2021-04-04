@@ -25,6 +25,7 @@
                     <div class="msb-reply" >
                         <div class="reply-btn-grp" id="replyWindow">
                         <!-- Replies go here-->
+                        <span style="color:black;font-size: x-large;">...</span>
                         </div>
                     </div>
                 </div>
@@ -44,8 +45,9 @@
                 "{{url_for('static', filename='img/003-goose.png')}}",
                 "{{url_for('static', filename='img/004-goose.png')}}"]
 
-            post_chat({{firstChat| safe}})
-            post_reply_buttons({{replyOptions| safe}})
+            post_chat({{firstChat| safe}}, function() {
+                post_reply_buttons({{replyOptions| safe}});
+            });
         </script>
     </body>
 </html>

@@ -1,23 +1,25 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, session, request
 app = Flask(__name__)
+import json
+from convos import convos
 
 @app.route('/')
 def hello_world():
-    firstChat = ["Hello! I'm the RGD :). I'm here to help you fix problems in your code. Here's how you debug code:",
-        "1. Make sure you can reproduce the problem and... 2. make sure you can reproduce it quickly",
-        "3. Figure out the cause of the problem",
-        "4. Plan out how to fix the cause of the problem",
-        "5. Figure out if the planned fix will break anything else",
-        "6. Fix the problem", 
-        "Do you need help with any of these steps?"]
-    replyOptions = ["I can't reproduce the issue",
-        "It takes me a minute to reproduce the issue",
-        "I can't figure out what is causing the problem",
-        "I can't figure out how to fix the cause of the problem",
-        "I'm afraid of breaking things with my fix",
-        "I have a question about something else"]
+    session['userPath'] = ['greeting']
+    convo = convos['greeting']
+    return render_template('site.html', firstChat=convo['chat'], replyOptions=convo['replies'])
 
-    return render_template('site.html', firstChat=firstChat, replyOptions=replyOptions)
+@app.route('/reply', methods=['POST'])
+def reply():
+    numArg = int(request.form['num']) - 1
 
+    prevConvo = convos.get(session['userPath'][-1], convos['error']) 
+    convoID = prevConvo['reply_convos'][numArg]
+    session['userPath'] += [convoID]
+
+    convo = convos.get(convoID, convos['error'])
+    return json.dumps({"chat": convo['chat'], "replies": convo['replies']})
+
+app.secret_key = 'honsdkfln'
 if __name__ == "__main__":
 	app.run('0.0.0.0', 8080)

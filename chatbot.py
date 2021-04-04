@@ -1,6 +1,8 @@
+# Deprecated
 import random
 from time import sleep
 from nltk.util import ngrams
+from flask import g
 import pdb
 
 def printo(line):
@@ -78,27 +80,28 @@ def dead_end(statement, func=lambda: hello()):
     else:
         more_help()
 
+
 ## Flow starts 
 def hello():
     chat(['hello. I\'m the rubber goose debugger, need help fixing your code?', 'hi, I\'m the rubber goose debugger, do you have broken code that needs fixing?'], 
         reproduction_check, cant_help)
 
 def cant_help():
-    dead_end('Sorry I can only help with fixing broken code at the moment. Try searching somewhere else.')
+    dead_end()
 
 def reproduction_check(problemType=''):
-    chat('Are you able to reproduce the ' + problemType +  'problem?', quick_reproduction_check, reproduction_recs)
+    chat(', quick_reproduction_check, reproduction_recs)
 
 def reproduction_recs():
-    chat('You don\'t need to reproduce all parts of the original bug. can you strip it done to it\'s essential parts and test those?',
+    chat(,
         lambda: reproduction_check('core '), hypothesis_check)
 
 def hypothesis_check():
-    chat('Can you create hypotheses about why it doesn\'t work and test those?',
+    chat('
         quick_hypothesis_check, more_help)
 
 def more_help():
-    dead_end('This is over my head. Go ask for help from a human. I\'ll be here when you get back. (just type restart)')
+    dead_end
 
 def quick_hypothesis_check():
     chat('Are you able to test your hypotheses quickly?', cause_check, speedup_debugging)
@@ -110,10 +113,10 @@ def speedup_debugging():
     pass
     
 def cause_check():
-    chat('After reproducing and checking, Do you think you know the cause?', fix_check, figure_out_cause)
+    chat(, fix_check, figure_out_cause)
 
 def figure_out_cause():
-    dead_end('Continue testing hypotheses and let me know when you\'ve found something', cause_check)
+    dead_end(, cause_check)
 
 def fix_check():
     chat('Do you know how to fix the cause?', break_other_check, give_fixes)
@@ -125,7 +128,7 @@ def break_other_check():
     chat('do you think it will break anything else?', regression_test, go_fix)
 
 def go_fix():
-    dead_end('Great! go fix it. I\'ll be here for your next problem. (type restart)')
+    dead_end((type restart)')
 
 def regression_test():
     chat('h')
