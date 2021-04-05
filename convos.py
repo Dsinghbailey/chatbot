@@ -50,12 +50,12 @@ convos['error'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos
 
 ## Understand recs
 chat = ["Can you go ask the user for more information?", "( Go do so if you can )"]
-replies = ["Yep. I understand the problem now." "No", "Do you have another way to understand the problem?"]
+replies = ["Yep. I understand the problem now.", "No", "Do you have another way to understand the problem?"]
 replyConvos = [ "understand_rec2", "understand_rec2"]
 convos['understand_rec1'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
 chat = ["Can you fill in the blanks in this statement?: when a user does ___ the program should do ___ but it does ___ instead"]
-replies = ["Yes. I understand the problem now." "No", "Do you have another way to understand the problem?"]
+replies = ["Yes. I understand the problem now.", "No", "Do you have another way to understand the problem?"]
 replyConvos = ["greeting2", "ask_for_help", "ask_for_help"]
 convos['understand_rec2'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 

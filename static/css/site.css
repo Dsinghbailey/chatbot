@@ -137,7 +137,20 @@ body {
     overflow-y: auto;
     float: right;
     padding-bottom: 16px;
+    overflow-x: hidden;
 }
+#replyPrompt {
+    font-size: 1.5em; 
+    color: #bbb;
+    display: inline;
+    float:right;
+    margin-top:6px;
+}
+@media only screen and (max-width: 600px) {
+    #replyPrompt {
+        display: none;
+    }
+ }
 /* width */
 #replyWindow::-webkit-scrollbar {
     width: 20px;
@@ -177,6 +190,7 @@ body {
     border-width: 0px 0px 0px 0px;
     background: transparent;
     text-decoration: underline;
+    text-align: left;
 }
 .reply-btn:hover button{
     background: rgb(20, 181, 146) !important;
@@ -190,7 +204,12 @@ body {
 .reply-btn:hover i{
     color: black !important;
 }
-
+@media only screen and (max-width: 600px) {
+    .reply-btn {
+        display: flex;
+        width: auto;
+    }
+ }
 .four-zero, .lc-block {
     box-shadow: 0 1px 11px rgba(0, 0, 0, .27);
 }
