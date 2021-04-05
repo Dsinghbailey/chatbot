@@ -1,4 +1,20 @@
-
+function post_wait(callback){
+    var imgURL = imgURLArr[Math.floor(Math.random() * imgURLArr.length)]; 
+    var chatHistory = $("<div id='chatWait'></div>");
+    chatHistory.load(chatHistoryPartial, function() {
+        this.innerHTML = this.innerHTML.replace("{{imgURL}}", imgURL);
+        var ID = $('.message-feed').length
+        this.innerHTML = this.innerHTML.replace("{{chatText}}", '...');
+        this.innerHTML = this.innerHTML.replace("{{ID}}", ID); 
+        $("#historyWindow").append(chatHistory);
+        $("#historyWindow").scrollTop($("#historyWindow")[0].scrollHeight);
+        if (typeof callback == "function") {
+            setTimeout( function(){
+                callback();
+            }, 500);
+        }
+    });
+}
 function post_chat(textArr, callback){
     var imgURL = imgURLArr[Math.floor(Math.random() * imgURLArr.length)];
     var chatHistory = $("<div></div>");
@@ -26,19 +42,6 @@ function post_chat(textArr, callback){
                 }, j * 500); 
             }
         }
-    });
-}
-
-function post_wait(){
-    var imgURL = imgURLArr[Math.floor(Math.random() * imgURLArr.length)]; 
-    var chatHistory = $("<div id='chatWait'></div>");
-    chatHistory.load(chatHistoryPartial, function() {
-        this.innerHTML = this.innerHTML.replace("{{imgURL}}", imgURL);
-        var ID = $('.message-feed').length
-        this.innerHTML = this.innerHTML.replace("{{chatText}}", '...');
-        this.innerHTML = this.innerHTML.replace("{{ID}}", ID); 
-        $("#historyWindow").append(chatHistory);
-        $("#historyWindow").scrollTop($("#historyWindow")[0].scrollHeight);
     });
 }
 
@@ -80,9 +83,6 @@ function post_reply_buttons(textArr){
     });
     $("#replyWindow").html('') 
     $("#replyWindow").append(replyButtons);
-    setTimeout(function(){
-        $("#replyWindow").height('auto');
-    }, 100);
 }
 
 function reply_click(number, text){
@@ -108,6 +108,5 @@ function reply_click(number, text){
         post_wait();
         http.send(params)
     });
-    $("#replyWindow").height($("#replyWindow").height()); 
-    $("#replyWindow").html('<span style="color:black;font-size: x-large;">...</span>');
+    $("#replyWindow").html('<span id="replyWait">...</span>');
 }

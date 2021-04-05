@@ -64,8 +64,6 @@ replyConvos = ["greeting2", "reproduce_rec1_example", "greeting2"]
 convos['reproduce_rec1'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
 
-
-
 """
 ('This is over my head. Go ask for help from a human. I\'ll be here when you get back. (just type restart)')
 'Great! go fix it. I\'ll be here for your next problem. 
