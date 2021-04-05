@@ -13,10 +13,16 @@ def hello_world():
 def reply():
     numArg = int(request.form['num']) - 1
 
-    prevConvo = convos.get(session['userPath'][-1], convos['error']) 
-    convoID = prevConvo['reply_convos'][numArg]
+    prevConvo = convos.get(session['userPath'][-1], convos['error'])
+    try:
+        convoID = prevConvo['reply_convos'][numArg]
+    except:
+        print('missing reply')
+        convoID = 'error'
+        
+    print(session['userPath'], numArg, convoID)
     session['userPath'] += [convoID]
-
+    
     convo = convos.get(convoID, convos['error'])
     return json.dumps({"chat": convo['chat'], "replies": convo['replies']})
 
