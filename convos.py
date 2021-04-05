@@ -6,7 +6,7 @@ chat = ["Hello! I'm the RGD :). I'm here to help you fix problems in your code. 
     "4. Figure out the cause of the problem",
     "5. Plan out how to fix the cause of the problem",
     "6. Figure out if the planned fix will break anything else",
-    "7. Fix the problem", 
+    "7. Fix the problem and verify that it is fixed", 
     "Do you need help with any of these steps?"]
 replies = ["I don't totally understand the problem",
     "I can't reproduce the issue",
@@ -14,8 +14,9 @@ replies = ["I don't totally understand the problem",
     "I can't figure out what is causing the problem",
     "I can't figure out how to fix the cause of the problem",
     "I'm afraid of breaking things with my fix",
+    "I don't think my fix is working",
     "I have a question about something else"]
-replyConvos =["understand_rec1", "reproduce_rec1", "fast_reproduce_rec1"]
+replyConvos =["understand_rec1", "reproduce_rec1", "fast_reproduce_rec1", "cause_rec1"]
 convos['greeting'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
 chat = ["Ok! As a reminder here are my recommended steps to debugging a problem:",
@@ -24,14 +25,15 @@ chat = ["Ok! As a reminder here are my recommended steps to debugging a problem:
     "4. Figure out the cause of the problem",
     "5. Plan out how to fix the cause of the problem",
     "6. Figure out if the planned fix will break anything else",
-    "7. Fix the problem", 
-    "What do you need help with?"]
+    "7. Fix the problem and verify that it is fixed", 
+    "Do you need help with any of them?"]
 replies = ["I don't totally understand the problem",
     "I can't reproduce the issue",
     "It takes me a minute to reproduce the issue",
     "I can't figure out what is causing the problem",
     "I can't figure out how to fix the cause of the problem",
     "I'm afraid of breaking things with my fix",
+    "I don't think my fix is working",
     "I have a question about something else"]
 replyConvos =["understand_rec1", "reproduce_rec1", "fast_reproduce_rec1"]
 convos['greeting2'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
@@ -47,19 +49,51 @@ replyConvos = ["greeting"]
 convos['error'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
 ## Understand recs
-chat = ["Can you go ask the user for more information?", "(go do it if you can)"]
-replies = ["No", "Do you have another way to understand the problem?", "I understand the problem now."]
-replyConvos = ["understand_rec2", "understand_rec2", "greeting2"]
+chat = ["Can you go ask the user for more information?", "( Go do so if you can )"]
+replies = ["Yep. I understand the problem now." "No", "Do you have another way to understand the problem?"]
+replyConvos = [ "understand_rec2", "understand_rec2"]
 convos['understand_rec1'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
 chat = ["Can you fill in the blanks in this statement?: when a user does ___ the program should do ___ but it does ___ instead"]
-replies = ["No", "Do you have another way to understand the problem?", "I understand the problem now."]
-replyConvos = ["ask_for_help", "ask_for_help", "greeting2"]
+replies = ["Yes. I understand the problem now." "No", "Do you have another way to understand the problem?"]
+replyConvos = ["greeting2", "ask_for_help", "ask_for_help"]
 convos['understand_rec2'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
 ## Reproduce recs
 chat = ["You don't need to reproduce all parts of the original bug. Can you strip it done to its essential parts and test those?"]
 replies = ["Yep.  I have reproduced the problem.", "I don't understand. Do you have an example?", "No I can not."]
+replyConvos = ["greeting2", "reproduce_rec1_example", "reproduce_rec2"]
+convos['reproduce_rec1'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
+
+chat = ["Can you try to recreate the environment that the issue occured in programmatically?"]
+replies = ["Yep. I have reproduced the problem.", "No I can not."]
+replyConvos = ["greeting2", "reproduce_rec3"]
+convos['reproduce_rec2'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
+
+chat = ["Sometimes the inability to recreate a problem is the result of not fully understanding the problem."]
+replies = ["I think I understandstand the problem, I just can't recreate it", "Give me tips about understanding the problem"]
+replyConvos = ["reproduce_rec4", "understand_rec1"]
+convos['reproduce_rec3'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
+
+chat = ["Sometimes we can't always reproduce a bug due to complex causes like race conditions, in these cases we should fix the likely cause of the bug and automatically the bug if it happens again."]
+replies = ["ok. I need help with something else", "How do you automatically log the bug?", "I need help figuring out the cause of the issue"]
+replyConvos = ["greeting2", "reproduce_rec4_logging", "cause_rec1"]
+convos['reproduce_rec4'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
+
+chat = ["Place a logging statement that triggers when your problem triggers. for example if you encounter a value error on a server, have that server email you in event of that value error."]
+replies = ["ok. I need help with something else", "I don't understand"]
+replyConvos = ["greeting2", "ask for help"]
+convos['reproduce_rec4_logging'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
+
+## Fast Reproduce recs
+chat = ["You don't need to reproduce all parts of the original bug. Can you strip it done to its essential parts and test those?"]
+replies = ["Yep.  I have reproduced the problem.", "I don't understand. Do you have an example?", "No I can not."]
+replyConvos = ["greeting2", "reproduce_rec1_example", "greeting2"]
+convos['reproduce_rec1'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
+
+## Cause recs
+chat = ["Can you write down several top hypotheses and detemine the most likely cause?"]
+replies = ["Yep.  I have the most likely cause.", "No I can not."]
 replyConvos = ["greeting2", "reproduce_rec1_example", "greeting2"]
 convos['reproduce_rec1'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 

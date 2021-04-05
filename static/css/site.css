@@ -134,7 +134,7 @@ body {
 }
 #replyWindow {    
     height: 160px;
-    overflow-y: scroll;
+    overflow-y: auto;
     float: right;
     padding-bottom: 16px;
 }
