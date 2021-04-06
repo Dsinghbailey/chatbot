@@ -102,12 +102,14 @@ replies = ["Yep.  I have the most likely cause.", "I have no hypotheses", "I don
 replyConvos = ["greeting2", "cause_rec2", "cause_rec1_explanation"]
 convos['cause_rec1'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
-## Afraid of breaking other things (regression testing)
+## Afraid of breaking other things (regression testing) recs
 chat = ["List all of the things you're afraid of breaking, then for each of them list a way to check if they broke.",
 "Also make sure you have a way to undo the effects of your code!"]
 replies = ["ok. Done"]
 replyConvos = ["greeting2"]
 convos['breaking_rec1'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
+
+## Verify Fix recs
 
 
 """
