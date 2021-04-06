@@ -29,6 +29,9 @@ function post_chat(textArr, callback){
                 $('#chatWait').remove()
                 $("#historyWindow").append(chatHistory);
                 $("#historyWindow").scrollTop($("#historyWindow")[0].scrollHeight);
+                if ((j == textArr.length - 1) && (typeof callback == "function")) {
+                    callback(); 
+                }
             } else {
                 setTimeout( function(){
                     var msgHTML = '<br><div style="margin-top: 4px;" class="mf-content">' + textArr[j] + '</div>';
@@ -86,7 +89,6 @@ function post_reply_buttons(textArr){
 }
 
 function reply_click(number, text){
-
     var http = new XMLHttpRequest();
     var params = "num=" + number + '&text=' + text
     http.open("POST", '/reply', true);
@@ -96,8 +98,9 @@ function reply_click(number, text){
 		if (http.readyState == 4){
 			if (http.status == 200) {
                 data = JSON.parse(http.response)
-                post_chat(data['chat'])
-                post_reply_buttons(data['replies'])
+                post_chat(data['chat'], function() {
+                    post_reply_buttons(data['replies'])
+                });
 			} else {
                 alert('Honk. There was an error');
 			}

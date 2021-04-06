@@ -182,7 +182,7 @@ body {
     min-width: 60%;
 }
 .reply-btn{
-    width: max-content;
+
 }
 .reply-btn button{
     padding: 8px 12px 8px 8px;
@@ -200,6 +200,7 @@ body {
 }
 .reply-btn i{
     color:transparent;
+    cursor: pointer;
 }
 .reply-btn:hover i{
     color: black !important;
