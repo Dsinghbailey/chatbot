@@ -108,7 +108,7 @@ convos['fast_reproduce_rec2'] = {'chat': chat, 'replies': replies, 'reply_convos
 
 ## Cause recs
 chat = ["Can you write down several top hypotheses and determine the most likely?"]
-replies = ["Yep.  I have the most likely cause.", "I have no hypotheses", "I don't know how?"]
+replies = ["Yep.  I have the most likely cause.", "I have no hypotheses", "I don't know how"]
 replyConvos = ["greeting2", "cause_rec2", "cause_rec1_explanation"]
 convos['cause_rec1'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 

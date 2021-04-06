@@ -9,6 +9,10 @@ def hello_world():
     convo = convos['greeting']
     return render_template('site.html', firstChat=convo['chat'], replyOptions=convo['replies'])
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 @app.route('/reply', methods=['POST'])
 def reply():
     numArg = int(request.form['num']) - 1
