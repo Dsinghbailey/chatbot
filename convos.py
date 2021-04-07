@@ -1,12 +1,12 @@
 convos = {}
 ### Utility conversations
 chat = ["Hello! I'm the RGD :). I'm here to help you fix problems in your code. Here's a good way to debug code:",
-    "1. Make sure you have a good understanding of the problem",
-    "2. Reproduce the problem and... 3. make sure you can reproduce it quickly",
-    "4. Figure out the cause of the problem",
-    "5. Plan out how to fix the cause of the problem",
-    "6. Figure out if the planned fix will break anything else",
-    "7. Fix the problem and verify that it is fixed", 
+    """1. Make sure you have a good understanding of the problem <br>
+    2. Reproduce the problem and... 3. make sure you can reproduce it quickly <br>
+    4. Figure out the cause of the problem <br>
+    5. Plan out how to fix the cause of the problem <br>
+    6. Figure out if the planned fix will break anything else <br>
+    7. Fix the problem and verify that it is fixed""", 
     "Do you need help with any of these steps?"]
 replies = ["I don't totally understand the problem",
     "I can't reproduce the issue",
@@ -20,12 +20,12 @@ replyConvos = ["understand_rec1", "reproduce_rec1", "fast_reproduce_rec1", "caus
 convos['greeting'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
 chat = ["Ok! As a reminder here are my recommended steps to debugging a problem:",
-    "1. Make sure you have a good understanding of the problem",
-    "2. Reproduce the problem and... 3. make sure you can reproduce it quickly",
-    "4. Figure out the cause of the problem",
-    "5. Plan out how to fix the cause of the problem",
-    "6. Figure out if the planned fix will break anything else",
-    "7. Fix the problem and verify that it is fixed", 
+    """1. Make sure you have a good understanding of the problem <br>
+    2. Reproduce the problem and... 3. make sure you can reproduce it quickly <br>
+    4. Figure out the cause of the problem <br>
+    5. Plan out how to fix the cause of the problem <br>
+    6. Figure out if the planned fix will break anything else <br>
+    7. Fix the problem and verify that it is fixed <br>""",
     "Do you need help with any of them?"]
 replies = ["I don't totally understand the problem",
     "I can't reproduce the issue",
@@ -80,7 +80,7 @@ replies = ["I think I understandstand the problem, I just can't recreate it", "G
 replyConvos = ["reproduce_rec4", "understand_rec1"]
 convos['reproduce_rec3'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
-chat = ["Sometimes we can't always reproduce a bug due to complex causes like race conditions, in these cases we should fix the likely cause of the bug and automatically the bug if it happens again."]
+chat = ["Sometimes we can't always reproduce a bug due to complex causes like race conditions, in these cases we should fix the likely cause of the bug and automatically log the bug if it happens again."]
 replies = ["ok. I need help with something else", "How do you automatically log the bug?", "I need help figuring out the cause of the issue"]
 replyConvos = ["greeting2", "reproduce_rec4_logging", "cause_rec1"]
 convos['reproduce_rec4'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
@@ -168,7 +168,7 @@ convos['breaking_rec1'] = {'chat': chat, 'replies': replies, 'reply_convos': rep
 
 ## Verify Fix recs
 chat = ["Are you sure your fix isn't working?",
-    "Were you able to reroduce the problem and is it still happening?"]
+    "Were you able to reproduce the problem and is it still happening?"]
 replies = ["I was able to reproduce the problem, but it is still happening.", 
     "I don't think I'm able to fully recreate the issue"]
 replyConvos = ["verify_rec2", 'reproduce_rec1']
