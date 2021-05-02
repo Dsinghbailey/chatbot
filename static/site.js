@@ -88,8 +88,18 @@ function post_reply_buttons(textArr){
     $("#replyWindow").append(replyButtons);
 }
 
+function post_text_box(){
+    $("#replyWindow").html('<div class="form-group">' +
+        '<input type="text" class="form-control" id="text_box" placeholder="Type here">' +
+        '<button type="button" class="btn btn-primary pull-right" onclick="reply_click(' + 0 + ',\'get_text\')">Done</button>'+
+        '</div>');
+}
+
 function reply_click(number, text){
     var http = new XMLHttpRequest();
+    if (number == 0){
+        text = $('#text_box').val(); 
+    }
     var params = "num=" + number + '&text=' + text
     http.open("POST", '/reply', true);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -99,7 +109,11 @@ function reply_click(number, text){
 			if (http.status == 200) {
                 data = JSON.parse(http.response)
                 post_chat(data['chat'], function() {
-                    post_reply_buttons(data['replies'])
+                    if (data['replies'][0] == 'text_box'){
+                        post_text_box();
+                    } else{
+                        post_reply_buttons(data['replies']);
+                    }
                 });
 			} else {
                 alert('Honk. There was an error');

@@ -6,12 +6,18 @@
 h1{
     font-family: Rope;
 }
+a {
+    color: #000; 
+}
 body {
     font-family: Roboto,sans-serif;
     font-size: 13px;
     line-height: 1.42857143;
     color: #eee;
     background-color: lightseagreen;
+}
+.btn-primary{
+    rgb(20, 181, 146);
 }
 #historyWindow{
     height: 400px;
