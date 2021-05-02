@@ -6,4 +6,3 @@ handlers:
   secure: always
 - url: /static
   static_dir: static
-  handlers:
