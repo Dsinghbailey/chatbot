@@ -17,7 +17,7 @@ body {
     background-color: lightseagreen;
 }
 .btn-primary{
-    rgb(20, 181, 146);
+    background-color: rgb(20, 181, 146);
 }
 #historyWindow{
     height: 400px;
