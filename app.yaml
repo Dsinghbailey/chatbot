@@ -2,5 +2,8 @@ runtime: python39 # or another supported version
 entrypoint: python3 app.py
 handlers:
 - url: /.*
+  script: auto
   secure: always
-  redirect_http_response_code: 301
+- url: /static
+  static_dir: static
+  handlers:
