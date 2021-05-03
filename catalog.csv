@@ -1,0 +1,43 @@
+File,Description
+README.txt,Readme for launching file
+__pycache__,n/a
+app.py,runs program locally with python
+app.yaml,used to launch on server
+catalog.csv,catalog used to create catalog.pdf
+chatbot code.txt,initial code plan
+chatbot.py,deprecated chatbot code that ran in command line
+convos.py,Code contianing conversation flows
+requirements.txt,pip requirements file
+static,static folder
+templates,templates folder
+,
+./__pycache__:,n/a
+app.cpython-36.pyc,n/a
+convos.cpython-36.pyc,n/a
+,
+./static:,
+css,css folder
+img,img folder
+partials,html partials folder
+site.js,js file containing ajax and other files
+,
+./static/css:,
+Reeperbahn.ttf,deprecated font for logo
+site.css,css file for site
+,
+./static/img:,
+001-goose.png,goose image
+002-goose.png,goose image
+003-goose.png,goose image
+004-goose.png,goose image
+icon.png,favicon
+woman.png,Deprecated
+,
+./static/partials:,
+_chat_history.html,partial for chat history
+_reply_button.html,partial for reply button
+_reply_history.html,partial for reply  history
+,
+./templates:,
+about.html,about html file
+site.html,main site html file
