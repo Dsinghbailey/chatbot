@@ -6,7 +6,7 @@ replyConvos = ["debug", 'write', "error"]
 convos['greeting'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
 chat = ["What else can I help you with?"]
-replies = ["I need help debugging code", "I need help writing some code",  "I need help with something else", "error"]
+replies = ["I need help debugging code", "I need help writing some code",  "I need help with something else"]
 replyConvos = ["debug", 'write', "error"]
 convos['greeting2'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
