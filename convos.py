@@ -6,7 +6,7 @@ replyConvos = ["debug", 'write', "error"]
 convos['greeting'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
 chat = ["What else can I help you with?"]
-replies = ["I need help debugging code", "I need help writing some code",  "I need help with something else"]
+replies = ["I need help debugging code", "I need help writing some code", "I need help with something else"]
 replyConvos = ["debug", 'write', "error"]
 convos['greeting2'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
@@ -19,7 +19,7 @@ chat = ["Here's a way to write code:",
     4. Debug the program <br>""",
     "Do you need help with any of these steps?"]
 replies = ["I need help creating an outline", "I need help writing code under a comment",
-     "I need help looking up something I don't know how to do", "I need help with something else"]
+     "I need help looking up something I don't know how to do", "I need help debugging code", "I need help with something else"]
 replyConvos = ["outline", 'lookup', "lookup", 'debug', 'greeting2']
 convos['write'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
@@ -93,7 +93,7 @@ convos['debug2'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvo
 
 chat = ["This is over my head. Go ask for help from a human. Make sure to mention what you've tried so far"]
 replies = ["I need help with something else"]
-replyConvos = ["debug2"]
+replyConvos = ["greeting2"]
 convos['ask_for_help'] = {'chat': chat, 'replies': replies, 'reply_convos': replyConvos}
 
 chat = ["Sorry... My ability to talk about that topic is still being built"]
